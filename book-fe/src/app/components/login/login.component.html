@@ -1,0 +1,14 @@
+<form>
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="enter username" type="text" [(ngModel)]="username" name="username"/>
+  </mat-form-field>
+  <br/>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="enter password" type="password" [(ngModel)]="password" name="password"/>
+  </mat-form-field>
+  <br/>
+  <button mat-raised-button color="primary" (click)="onclick()">Primary</button>
+</form>
+
