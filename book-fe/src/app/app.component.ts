@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UserService} from "./service/user.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'book-fe';
+
+  isAuthenticate: boolean = false;
+
+  constructor(private userService: UserService) {
+  }
+
+  auth(isSuccessAuth: boolean) {
+    console.log(isSuccessAuth)
+    this.isAuthenticate = isSuccessAuth;
+    this.userService.userInfo().subscribe(user => console.log(user))
+  }
 }
