@@ -17,13 +17,13 @@ public class GatewayConfig {
         return builder.routes()
                 .route("user-service", r -> r.path("/api/users/**")
                         .filters(f -> f.filter(filter))
-                        .uri("user-service"))
+                        .uri("http://localhost:8081"))
                 .route("book-service", r -> r.path("/api/book/**")
                         .filters(f -> f.filter(filter))
-                        .uri("book-service"))
+                        .uri("http://localhost:8082"))
                 .route("order-service", r -> r.path("/api/order/**")
                         .filters(f -> f.filter(filter))
-                        .uri("order-service"))
+                        .uri("http://localhost:8083"))
                 // another route
                 .build();
     }
