@@ -1,7 +1,8 @@
 package com.hoanghuynh.userservice.service.impl;
 
 import com.hoanghuynh.userservice.model.User;
-import com.hoanghuynh.userservice.model.UserDto;
+import com.hoanghuynh.userservice.model.UserInfoDto;
+import com.hoanghuynh.userservice.model.UserRegisterDto;
 import com.hoanghuynh.userservice.repository.UserRepository;
 import com.hoanghuynh.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserServiceImpl implements UserService {
     PasswordEncoder passwordEncoder;
 
     @Override
-    public User createUser(UserDto user) {
+    public User createUser(UserRegisterDto user) {
         return userRepository.save(User.builder()
                 .username(user.getUsername())
                 .userId(UUID.randomUUID().toString())
@@ -31,5 +32,10 @@ public class UserServiceImpl implements UserService {
                 .password(passwordEncoder.encode(user.getPassword()))
                 .role("ROLE_USER")
                 .build());
+    }
+
+    @Override
+    public UserInfoDto getUserInfo(String username) {
+        return userRepository.getUserInfo(username);
     }
 }

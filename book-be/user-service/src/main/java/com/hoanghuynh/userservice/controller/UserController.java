@@ -3,7 +3,8 @@ package com.hoanghuynh.userservice.controller;
 import com.hoanghuynh.userservice.config.JwtConfig;
 import com.hoanghuynh.userservice.model.MyUserDetails;
 import com.hoanghuynh.userservice.model.User;
-import com.hoanghuynh.userservice.model.UserDto;
+import com.hoanghuynh.userservice.model.UserInfoDto;
+import com.hoanghuynh.userservice.model.UserRegisterDto;
 import com.hoanghuynh.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,10 +13,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -35,7 +33,7 @@ public class UserController {
     private JwtConfig jwtConfig;
 
     @PostMapping("/register")
-    public ResponseEntity<User> registerUser(@RequestBody @Valid UserDto user) {
+    public ResponseEntity<User> registerUser(@RequestBody @Valid UserRegisterDto user) {
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
     }
 
@@ -55,5 +53,10 @@ public class UserController {
         response.put("tokenType", "Bearer");
         response.put("accessToken", jwt);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/info")
+    public ResponseEntity<UserInfoDto> userInfo(Authentication authentication) {
+        return ResponseEntity.ok(userService.getUserInfo(authentication.getName()));
     }
 }
