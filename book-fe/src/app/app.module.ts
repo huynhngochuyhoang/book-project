@@ -13,6 +13,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { BookListComponent } from './components/book-list/book-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -21,17 +22,18 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     BookListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatIconModule,
-    HttpClientModule,
-    FormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatToolbarModule,
+        MatIconModule,
+        HttpClientModule,
+        FormsModule,
+        MatCardModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

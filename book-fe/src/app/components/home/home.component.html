@@ -9,4 +9,6 @@
     <mat-icon>exit_to_app</mat-icon>
   </button>
 </mat-toolbar>
-<app-book-list></app-book-list>
+<div class="container">
+  <app-book-list *ngFor="let book of books" [book]="book"></app-book-list>
+</div>
