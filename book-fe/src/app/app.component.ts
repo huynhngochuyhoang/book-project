@@ -8,14 +8,7 @@ import {UserService} from "./service/user.service";
 })
 export class AppComponent {
 
-  isAuthenticate: boolean = false;
-
   constructor(private userService: UserService) {
   }
 
-  auth(isSuccessAuth: boolean) {
-    console.log(isSuccessAuth)
-    this.isAuthenticate = isSuccessAuth;
-    this.userService.userInfo().subscribe(user => console.log(user))
-  }
 }

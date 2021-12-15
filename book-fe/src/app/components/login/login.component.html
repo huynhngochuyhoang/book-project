@@ -1,14 +1,15 @@
-<form>
-  <mat-form-field appearance="outline">
+<div class="login">
+  <p [ngStyle]="{'text-align': 'center'}">Login</p>
+  <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
     <mat-label>Username</mat-label>
     <input matInput placeholder="enter username" type="text" [(ngModel)]="username" name="username"/>
   </mat-form-field>
   <br/>
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
     <mat-label>Password</mat-label>
-    <input matInput placeholder="enter password" type="password" [(ngModel)]="password" name="password"/>
+    <input matInput placeholder="enter password" type="password" [(ngModel)]="password"/>
   </mat-form-field>
   <br/>
   <button mat-raised-button color="primary" (click)="onclick()">Login</button>
-</form>
+</div>
 

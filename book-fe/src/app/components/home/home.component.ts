@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  books: string[] = ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
+  books: string[] = ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
   constructor() { }
 
   ngOnInit(): void {

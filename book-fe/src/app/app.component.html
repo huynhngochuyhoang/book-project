@@ -1,7 +1,7 @@
-<app-login *ngIf="!isAuthenticate; else successAuth"
-           [authenticate]="isAuthenticate"
-           (successAuthenticate)="auth($event)"></app-login>
-<ng-template #successAuth>
-  <app-home></app-home>
-</ng-template>
+<!--<app-login *ngIf="!isAuthenticate; else successAuth"-->
+<!--           [authenticate]="isAuthenticate"-->
+<!--           (successAuthenticate)="auth($event)"></app-login>-->
+<!--<ng-template #successAuth>-->
+<!--  <app-home></app-home>-->
+<!--</ng-template>-->
 <router-outlet></router-outlet>
