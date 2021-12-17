@@ -28,4 +28,8 @@ export class UserService {
   userInfo() {
     return this.http.get(`${environment.apiUrl}/user/info`, this.httpOptions)
   }
+
+  isAuth() {
+    return false
+  }
 }

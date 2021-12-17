@@ -10,6 +10,9 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent {
 
+  @Input() authenticate!: boolean
+  @Output() successAuthenticate = new EventEmitter()
+
   username: string = '';
   password: string = '';
 
@@ -17,10 +20,11 @@ export class LoginComponent {
 
   onclick() {
     let userLogin: UserLogin = {username: this.username, password: this.password}
-    this.userService.login(userLogin).subscribe(response => {
-      console.log(response)
-      localStorage.setItem('accessToken', response.accessToken)
-      this.route.navigate(["dashboard"])
-    })
+    this.successAuthenticate.emit(true)
+    // this.userService.login(userLogin).subscribe(response => {
+    //   console.log(response)
+    //   localStorage.setItem('accessToken', response.accessToken)
+    //   this.route.navigate(["dashboard"])
+    // })
   }
 }

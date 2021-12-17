@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BookItem} from "../../model/book-item";
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  books: string[] = ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
-  constructor() { }
+  books: BookItem[] = [
+    {id: 1},
+    {id: 2},
+    {id: 3},
+    {id: 4},
+    {id: 5},
+    {id: 6},
+    {id: 7},
+    {id: 8},
+    {id: 9},
+    {id: 10},
+    {id: 11},
+    {id: 12}
+  ]
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

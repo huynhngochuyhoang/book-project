@@ -15,13 +15,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import { BookItemComponent } from './components/book-list/book-item/book-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    BookListComponent
+    BookListComponent,
+    BookItemComponent
   ],
   imports: [
     BrowserModule,

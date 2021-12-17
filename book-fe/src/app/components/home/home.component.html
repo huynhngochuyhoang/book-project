@@ -1,14 +1,4 @@
-<mat-toolbar>
-  <span>Book Application</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon">
-    <mat-icon>add_shopping_cart</mat-icon>
-  </button>
-  <span>User First Name</span>
-  <button mat-icon-button class="example-icon" routerLink="/">
-    <mat-icon>exit_to_app</mat-icon>
-  </button>
-</mat-toolbar>
 <div class="container">
   <app-book-list *ngFor="let book of books" [book]="book"></app-book-list>
 </div>
+

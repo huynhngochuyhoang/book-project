@@ -1,7 +1,17 @@
-<!--<app-login *ngIf="!isAuthenticate; else successAuth"-->
-<!--           [authenticate]="isAuthenticate"-->
-<!--           (successAuthenticate)="auth($event)"></app-login>-->
-<!--<ng-template #successAuth>-->
-<!--  <app-home></app-home>-->
-<!--</ng-template>-->
-<router-outlet></router-outlet>
+<app-login *ngIf="isAuthenticate === false; else successAuth"
+           [authenticate]="isAuthenticate"
+           (successAuthenticate)="auth($event)"></app-login>
+<ng-template #successAuth>
+  <mat-toolbar>
+    <span>Book Application</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon">
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+    <span>User First Name</span>
+    <button mat-icon-button class="example-icon" routerLink="/">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</ng-template>
