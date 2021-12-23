@@ -25,7 +25,7 @@ public class BookController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${book.order.url}")
+    @Value("${order.service.url}")
     private String orderServiceUrl;
 
     @GetMapping("/books")
@@ -40,7 +40,7 @@ public class BookController {
 
     @PostMapping("/order")
     public ResponseEntity<Object> orderBook(@RequestBody BookOrderDto bookOrderDto) {
-        ResponseEntity<Object> responseEntity = restTemplate.postForEntity(orderServiceUrl + "/api/order/purchase",
+        ResponseEntity<Object> responseEntity = restTemplate.postForEntity("http://" + orderServiceUrl + "/api/order/purchase",
                 bookOrderDto,
                 Object.class);
         return ResponseEntity.ok(responseEntity.getBody());
