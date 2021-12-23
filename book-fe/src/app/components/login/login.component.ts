@@ -20,11 +20,10 @@ export class LoginComponent {
 
   onclick() {
     let userLogin: UserLogin = {username: this.username, password: this.password}
-    this.successAuthenticate.emit(true)
-    // this.userService.login(userLogin).subscribe(response => {
-    //   console.log(response)
-    //   localStorage.setItem('accessToken', response.accessToken)
-    //   this.route.navigate(["dashboard"])
-    // })
+    this.userService.login(userLogin).subscribe(response => {
+      let accessToken = response.accessToken
+      localStorage.setItem('accessToken', accessToken)
+      this.successAuthenticate.emit(this.userService.isAuth())
+    })
   }
 }

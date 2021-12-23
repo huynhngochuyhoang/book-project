@@ -4,6 +4,7 @@ import {environment} from "../../environments/environment";
 import {UserLogin} from "../model/user-login";
 import {TokenResponse} from "../model/token-response";
 import {Observable} from "rxjs";
+import {User} from "../model/user";
 
 
 @Injectable({
@@ -13,8 +14,7 @@ export class UserService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      Authorization: `Bearer ${localStorage.getItem('accessToken')!}`
+      'Content-Type':  'application/json'
     })
   };
 
@@ -26,10 +26,12 @@ export class UserService {
   }
 
   userInfo() {
-    return this.http.get(`${environment.apiUrl}/user/info`, this.httpOptions)
+    this.httpOptions.headers = this.httpOptions.headers.append('Authorization',
+      'Bearer ' + localStorage.getItem('accessToken'))
+    return this.http.get<User>(`${environment.apiUrl}/user/info`, this.httpOptions)
   }
 
   isAuth() {
-    return false
+    return !!localStorage.getItem('accessToken')
   }
 }

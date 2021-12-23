@@ -1,14 +1,14 @@
-<app-login *ngIf="isAuthenticate === false; else successAuth"
+<app-login *ngIf="!isAuthenticate; else success"
            [authenticate]="isAuthenticate"
            (successAuthenticate)="auth($event)"></app-login>
-<ng-template #successAuth>
+<ng-template #success>
   <mat-toolbar>
     <span>Book Application</span>
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon">
       <mat-icon>add_shopping_cart</mat-icon>
     </button>
-    <span>User First Name</span>
+    <span [innerText]="user !== null ? user.firstName : 'username'"></span>
     <button mat-icon-button class="example-icon" routerLink="/">
       <mat-icon>exit_to_app</mat-icon>
     </button>
