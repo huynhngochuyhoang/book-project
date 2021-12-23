@@ -16,6 +16,8 @@ import {FormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import { BookItemComponent } from './components/book-list/book-item/book-item.component';
+import { PurchaseDialogComponent } from './components/purchase-dialog/purchase-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -23,21 +25,23 @@ import { BookItemComponent } from './components/book-list/book-item/book-item.co
     LoginComponent,
     HomeComponent,
     BookListComponent,
-    BookItemComponent
+    BookItemComponent,
+    PurchaseDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatIconModule,
-    HttpClientModule,
-    FormsModule,
-    MatCardModule,
-    MatButtonModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatToolbarModule,
+        MatIconModule,
+        HttpClientModule,
+        FormsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatDialogModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

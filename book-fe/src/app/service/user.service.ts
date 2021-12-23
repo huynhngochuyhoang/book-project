@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {UserLogin} from "../model/user-login";
 import {TokenResponse} from "../model/token-response";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {User} from "../model/user";
 
 
@@ -18,7 +18,12 @@ export class UserService {
     })
   };
 
+  userBehaviorSubject: BehaviorSubject<User>
+  currentUser: Observable<User>
+
   constructor(private http: HttpClient) {
+    this.userBehaviorSubject = new BehaviorSubject<User>(null as any)
+    this.currentUser = this.userBehaviorSubject.asObservable()
   }
 
   login(user: UserLogin): Observable<TokenResponse> {

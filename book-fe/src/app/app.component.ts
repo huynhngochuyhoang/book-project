@@ -18,12 +18,18 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.isAuthenticate = this.userService.isAuth();
     if (this.isAuthenticate) {
-      this.userService.userInfo().subscribe(user => this.user = user)
+      this.userService.userInfo().subscribe(user => {
+        this.user = user
+        this.userService.userBehaviorSubject.next(user)
+      })
     }
   }
 
   auth(event: any) {
     this.isAuthenticate = event
-    this.userService.userInfo().subscribe(user => this.user = user)
+    this.userService.userInfo().subscribe(user => {
+      this.user = user
+      this.userService.userBehaviorSubject.next(user)
+    })
   }
 }

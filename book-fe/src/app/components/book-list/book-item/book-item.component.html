@@ -1,12 +1,12 @@
 <mat-card class="example-card">
-  <img mat-card-image [src]="book && book.image ? book.image : 'No Image'"
+  <img mat-card-image [src]="book && book.image ? book.image : 'assets/400x550px.png'"
        [alt]="book && book.name ? book.name : 'No Book Name'">
   <mat-card-content>
     <strong>
-      {{ book && book.name ? book.name : 'No Book Name' }} - <span>{{ book && book.year ? book.year : '----' }}</span>
+      {{ book && book.name ? book.name : 'No Book Name' }} - <span>{{ book && book.year ? book.year : 2000 }}</span>
     </strong>
     <br/>
-    <strong> {{ book && book.price ? book.price : '------' |  currency: "VNĐ " }} </strong>
+    <strong> {{ book && book.price ? book.price : 0 |  currency: "VNĐ " }} </strong>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button>BUY</button>
