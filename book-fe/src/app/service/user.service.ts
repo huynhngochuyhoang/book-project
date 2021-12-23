@@ -5,6 +5,7 @@ import {UserLogin} from "../model/user-login";
 import {TokenResponse} from "../model/token-response";
 import {BehaviorSubject, Observable} from "rxjs";
 import {User} from "../model/user";
+import {UserRegister} from "../model/user-register";
 
 
 @Injectable({
@@ -38,5 +39,9 @@ export class UserService {
 
   isAuth() {
     return !!localStorage.getItem('accessToken')
+  }
+
+  register(userRegister: UserRegister) {
+    return this.http.post(`${environment.apiUrl}/user/register`, userRegister, this.httpOptions)
   }
 }

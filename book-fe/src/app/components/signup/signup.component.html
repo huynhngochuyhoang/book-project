@@ -1,0 +1,38 @@
+<form class="form" (ngSubmit)="signup()" [formGroup]="signupForm">
+  <h1 [ngStyle]="{'text-align': 'center'}">Register</h1>
+  <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="enter first name" type="text" formControlName="firstName">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="enter last name" type="text" formControlName="lastName">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="enter username" type="text" formControlName="username">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="enter password" type="password" formControlName="password">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="enter email" type="text" formControlName="email">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
+    <mat-label>Phone</mat-label>
+    <input matInput placeholder="enter your phone" type="text" formControlName="phone">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" type="submit">REGISTER</button>
+  <br>
+</form>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

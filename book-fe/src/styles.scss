@@ -7,7 +7,7 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: darkgrey;
+  background-color: #e7e7e7;
 }
 
 .example-spacer {
@@ -28,4 +28,10 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.form {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #f8eabf;
 }

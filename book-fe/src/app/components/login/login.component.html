@@ -1,15 +1,17 @@
-<div class="login">
-  <p [ngStyle]="{'text-align': 'center'}">Login</p>
+<div class="form">
+  <h1 [ngStyle]="{'text-align': 'center'}">Login</h1>
   <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
     <mat-label>Username</mat-label>
-    <input matInput placeholder="enter username" type="text" [(ngModel)]="username" name="username"/>
+    <input matInput placeholder="enter username" type="text" [(ngModel)]="username" name="username">
   </mat-form-field>
-  <br/>
+  <br>
   <mat-form-field appearance="outline" [ngStyle]="{width: '400px'}">
     <mat-label>Password</mat-label>
-    <input matInput placeholder="enter password" type="password" [(ngModel)]="password"/>
+    <input matInput placeholder="enter password" type="password" [(ngModel)]="password">
   </mat-form-field>
-  <br/>
+  <br>
   <button mat-raised-button color="primary" (click)="onclick()">Login</button>
+  <br>
+  <br>
+  <button mat-raised-button color="primary" (click)="signUp()">Create account</button>
 </div>
-

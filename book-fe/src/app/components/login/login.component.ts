@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {UserService} from "../../service/user.service";
 import {UserLogin} from "../../model/user-login";
-import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {SignupComponent} from "../signup/signup.component";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private userService: UserService, private route: Router) { }
+  constructor(private userService: UserService, private dialog: MatDialog) { }
 
   onclick() {
     let userLogin: UserLogin = {username: this.username, password: this.password}
@@ -25,5 +26,9 @@ export class LoginComponent {
       localStorage.setItem('accessToken', accessToken)
       this.successAuthenticate.emit(this.userService.isAuth())
     })
+  }
+
+  signUp() {
+    this.dialog.open(SignupComponent)
   }
 }

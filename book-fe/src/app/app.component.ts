@@ -32,4 +32,9 @@ export class AppComponent implements OnInit {
       this.userService.userBehaviorSubject.next(user)
     })
   }
+
+  logout() {
+    localStorage.clear()
+    window.location.reload()
+  }
 }

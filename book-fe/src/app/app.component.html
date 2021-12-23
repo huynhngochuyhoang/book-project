@@ -9,7 +9,7 @@
       <mat-icon>add_shopping_cart</mat-icon>
     </button>
     <span [innerText]="user !== null ? user.firstName : 'username'"></span>
-    <button mat-icon-button class="example-icon" routerLink="/">
+    <button mat-icon-button class="example-icon" (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
     </button>
   </mat-toolbar>
