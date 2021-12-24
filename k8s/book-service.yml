@@ -37,13 +37,13 @@ spec:
             path: "/actuator/health/liveness"
             port: 8082
           failureThreshold: 3
-          periodSeconds: 3
+          periodSeconds: 10
         readinessProbe:
           httpGet:
             path: "/actuator/health/readiness"
             port: 8082
           failureThreshold: 3
-          periodSeconds: 3
+          periodSeconds: 10
         ports:
         - containerPort: 8082
 ---
