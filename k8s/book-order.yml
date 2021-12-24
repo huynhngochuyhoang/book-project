@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: book-order-config
+data:
+  SERVER_PORT: '8083'
+  MYSQL_USER: 'root'
+  MYSQL_PASSWORD: 'root'
+  MYSQL_HOST: 'mysql'
+  MYSQL_PORT:  '3306'
+  MYSQL_DATABASE: 'book_order'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order
+        image: huynhngochuyhoang/order-service
+        envFrom:
+          - configMapRef:
+              name: book-order-config
+        livenessProbe:
+          httpGet:
+            path: "/actuator/health/liveness"
+            port: 8083
+          failureThreshold: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: "/actuator/health/readiness"
+            port: 8083
+          failureThreshold: 3
+          periodSeconds: 3
+        ports:
+        - containerPort: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+spec:
+  selector:
+    app: order-service
+  ports:
+  - port: 8083
+    targetPort: 8083

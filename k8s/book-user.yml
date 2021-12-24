@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: book-user-config
+data:
+  SERVER_PORT: '8081'
+  MYSQL_USER: 'root'
+  MYSQL_PASSWORD: 'root'
+  MYSQL_HOST: 'mysql'
+  MYSQL_PORT:  '3306'
+  MYSQL_DATABASE: 'book_user'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user
+        image: huynhngochuyhoang/user-service
+        envFrom:
+          - configMapRef:
+              name: book-user-config
+        livenessProbe:
+          httpGet:
+            path: "/actuator/health/liveness"
+            port: 8081
+          failureThreshold: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: "/actuator/health/readiness"
+            port: 8081
+          failureThreshold: 3
+          periodSeconds: 3
+        ports:
+        - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:
+  selector:
+    app: user-service
+  ports:
+  - port: 8081
+    targetPort: 8081
