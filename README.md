@@ -10,7 +10,7 @@ A simple application using [Angular](https://angular.io/) and [Spring Microservi
 ## Whole application architectures
 ![Application architectures](https://github.com/huynhngochuyhoang/book-project/blob/main/img/architectures.png)
 ## Run the project
-> If you don't want to change any thing, just skip to this [section](https://github.com/huynhngochuyhoang/book-project#finally)
+> If you don't want to change any thing, just skip to [Finally step](https://github.com/huynhngochuyhoang/book-project#finally)
 ### First step
 Login to your docker registry and enter your [Access token](https://docs.docker.com/docker-hub/access-tokens/)
 ``` 
