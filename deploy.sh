@@ -8,6 +8,7 @@ mvn package -DskipTests
 
 # Build frontend
 cd $CURRENT_PWD/book-fe
+npm install
 ng build
 
 
